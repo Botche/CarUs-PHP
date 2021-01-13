@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Manufacturer extends Model
+class Models_car extends Model
 {
     use CrudTrait;
 
@@ -15,7 +15,7 @@ class Manufacturer extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'manufacturers';
+    protected $table = 'models_cars';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
@@ -28,9 +28,9 @@ class Manufacturer extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function models()
+    public function manufacturer()
     {
-    	return $this->hasMany(Models_car::class);
+    	return $this->belongsTo(Manufacturer::class);
     }
 
     /*
