@@ -10,12 +10,14 @@
     "require": {
         "php": "^7.3|^8.0",
         "backpack/crud": "4.1.*",
+        "components/jquery": "^3.5",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "intervention/image": "^2.5",
         "laravel/framework": "^8.12",
-        "laravel/tinker": "^2.5"
+        "laravel/tinker": "^2.5",
+        "twbs/bootstrap": "^4.5"
     },
     "require-dev": {
         "backpack/generators": "^3.1",
