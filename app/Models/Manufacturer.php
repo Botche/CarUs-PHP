@@ -33,6 +33,10 @@ class Manufacturer extends Model
     	return $this->hasMany(Models_car::class);
     }
 
+    public function cars()
+    {
+    	return $this->hasMany(Models_car::class);
+    }
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

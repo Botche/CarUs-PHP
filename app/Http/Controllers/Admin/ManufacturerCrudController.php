@@ -39,7 +39,10 @@ class ManufacturerCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        // CRUD::setFromDb(); // columns
+
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addColumns($this->getFieldsData(TRUE));
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
@@ -58,7 +61,10 @@ class ManufacturerCrudController extends CrudController
     {
         CRUD::setValidation(ManufacturerRequest::class);
 
-        CRUD::setFromDb(); // fields
+        // CRUD::setFromDb(); // fields
+
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addFields($this->getFieldsData(TRUE));
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -76,5 +82,21 @@ class ManufacturerCrudController extends CrudController
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
+    }
+
+    private function getFieldsData($show = FALSE)
+    {
+        return [
+            [
+                'name' => 'name',
+                'label' => 'Name',
+                'type' => 'text'
+            ],
+            [
+                'label' => 'Founded on',
+                'name' => 'founded_on',
+                'type' => 'date',
+            ]
+        ];
     }
 }

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class Models_carRequest extends FormRequest
+class CarRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,7 +27,11 @@ class Models_carRequest extends FormRequest
     {
         return [
             'name' => 'required|min:3|max:255',
-            'manufacturer_id' => 'required'
+            'production_year' => 'required|date|before:tomorrow',
+            'travelled_kilometers' => 'required|min:0|max:1000000',
+            'manufacturer_id' => 'required',
+            'production_year' => 'required',
+            'image' => 'required',
         ];
     }
 

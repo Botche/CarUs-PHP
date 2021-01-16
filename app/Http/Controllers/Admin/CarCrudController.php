@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\Models_carRequest;
+use App\Http\Requests\CarRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class Models_carCrudController
+ * Class CarCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class Models_carCrudController extends CrudController
+class CarCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,11 @@ class Models_carCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Models_car::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/models_car');
-        CRUD::setEntityNameStrings('models_car', 'models_cars');
+        CRUD::setModel(\App\Models\Car::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/car');
+        CRUD::setEntityNameStrings('car', 'cars');
+
+        $this->crud->addFields($this->getFieldsData());
     }
 
     /**
@@ -43,7 +45,6 @@ class Models_carCrudController extends CrudController
 
         $this->crud->set('show.setFromDb', false);
         $this->crud->addColumns($this->getFieldsData(TRUE));
-
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -59,7 +60,7 @@ class Models_carCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(Models_carRequest::class);
+        CRUD::setValidation(CarRequest::class);
 
         // CRUD::setFromDb(); // fields
 
@@ -91,6 +92,33 @@ class Models_carCrudController extends CrudController
                 'name' => 'name',
                 'label' => 'Name',
                 'type' => 'text'
+            ],
+            [
+                'name' => 'production_year',
+                'label' => 'Production year',
+                'type' => 'date',
+            ],
+            [
+                'name' => 'travelled_kilometers',
+                'label' => 'Travelled kilometers',
+                'type' => 'number',
+            ],
+            [
+                'label'        => "Car Image",
+                'name'         => "image",
+                'filename'     => NULL, // set to null if not needed
+                'type'         => 'image',
+                'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
+                'crop'         => true, // set to true to allow cropping, false to disable
+                'src'          => NULL, // null to read straight from DB, otherwise set to model accessor function
+            ],
+            [
+                'label' => "Model car",
+                'name' => 'models_car_id',
+                'type' => 'select',
+                'entity' => 'models_car',
+                'model'     => "App\Models\Models_car", // related model
+                'attribute' => 'name', // foreign key attribute that is shown to user
             ],
             [
                 'label' => "Manufacturer",
