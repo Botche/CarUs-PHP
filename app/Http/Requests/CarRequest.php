@@ -30,8 +30,8 @@ class CarRequest extends FormRequest
             'production_year' => 'required|date|before:tomorrow',
             'travelled_kilometers' => 'required|min:0|max:1000000',
             'manufacturer_id' => 'required',
-            'production_year' => 'required',
-            'image' => 'required',
+            'models_car_id' => 'required',
+            'image' => 'required|image',
         ];
     }
 

@@ -104,13 +104,12 @@ class CarCrudController extends CrudController
                 'type' => 'number',
             ],
             [
-                'label'        => "Car Image",
-                'name'         => "image",
-                'filename'     => NULL, // set to null if not needed
-                'type'         => 'image',
-                'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
-                'crop'         => true, // set to true to allow cropping, false to disable
-                'src'          => NULL, // null to read straight from DB, otherwise set to model accessor function
+                'label' => "Manufacturer",
+                'name' => 'manufacturer_id',
+                'type' => 'select',
+                'entity' => 'manufacturer',
+                'model' => "App\Models\Manufacturer", // related model
+                'attribute' => 'name', // foreign key attribute that is shown to user
             ],
             [
                 'label' => "Model car",
@@ -121,12 +120,13 @@ class CarCrudController extends CrudController
                 'attribute' => 'name', // foreign key attribute that is shown to user
             ],
             [
-                'label' => "Manufacturer",
-                'name' => 'manufacturer_id',
-                'type' => 'select',
-                'entity' => 'manufacturer',
-                'model' => "App\Models\Manufacturer", // related model
-                'attribute' => 'name', // foreign key attribute that is shown to user
+                'label'        => "Car Image",
+                'name'         => "image",
+                'filename'     => NULL, // set to null if not needed
+                'type'         => 'image',
+                'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
+                'crop'         => true, // set to true to allow cropping, false to disable
+                'src'          => NULL, // null to read straight from DB, otherwise set to model accessor function
             ]
         ];
     }
