@@ -9,26 +9,23 @@ use Illuminate\Support\Facades\DB;
 
 class CarsController extends Controller
 {
-    public function search(Request $request)
+    public function index(Request $request)
     {
         $search = $request->get('search');
 
-        if ($request['search_by'] == null || $search == null) {
-            return back();
-        }
+        $cars = DB::table('cars')
+            ->paginate(5);
 
         if ($request[('search_by')] == 'year') {
             $cars = DB::table('cars')
                 ->where('production_year', 'like', '%' . $search . '%')
                 ->paginate(5);
-        }
-        else if ($request[('search_by')] == 'model') {
+        } else if ($request[('search_by')] == 'model') {
             $cars = DB::table('cars')
                 ->join('models_cars', 'models_car.id', '=', 'cars.models_car_id')
                 ->where('models_cars.name', 'like', '%' . $search . '%')
                 ->paginate(5);
-        }
-        else if ($request[('search_by')] == 'manufacturer') {
+        } else if ($request[('search_by')] == 'manufacturer') {
             $cars = DB::table('cars')
                 ->join('manufacturers', 'manufacturers.id', '=', 'cars.manufacturer_id')
                 ->where('manufacturers.name', 'like', '%' . $search . '%')
