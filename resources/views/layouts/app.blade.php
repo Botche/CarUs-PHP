@@ -41,13 +41,13 @@
                         <a class="nav-link" href="/contact-us">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link authentication" href="/admin"></a>
+                        <a class="nav-link authentication" href="/admin">Admin</a>
                     </li>
                 </ul>
             </div>
         </div>
         <div class="input-group-append row mr-4 w-50">
-            <form action="/search" method="GET" style="margin-left: 10px">
+            <form action="/cars" method="GET" style="margin-left: 10px">
                 <div class="input-group">
                     <input type="search" name="search" placeholder="Search for..." class="form-control">
                     <select class="custom-select" name="search_by" id="searchBy">

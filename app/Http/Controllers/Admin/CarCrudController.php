@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CarRequest;
+use App\Models\Models_car;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -44,7 +45,7 @@ class CarCrudController extends CrudController
         // CRUD::setFromDb(); // columns
 
         $this->crud->set('show.setFromDb', false);
-        $this->crud->addColumns($this->getFieldsData(TRUE));
+        $this->crud->addColumns($this->getFieldsData());
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
@@ -65,7 +66,7 @@ class CarCrudController extends CrudController
         // CRUD::setFromDb(); // fields
 
         $this->crud->set('show.setFromDb', false);
-        $this->crud->addFields($this->getFieldsData(TRUE));
+        $this->crud->addFields($this->getFieldsData());
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
@@ -85,7 +86,27 @@ class CarCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    private function getFieldsData($show = FALSE)
+    // public function index(Request $request)
+    // {
+    //     $search_term = $request->input('q');
+    //     $form = collect($request->input('form'))->pluck('value', 'name');
+
+    //     $options = Models_car::query();
+
+    //     // if no category has been selected, show no options
+    //     if (!$form['manufacturer_id']) {
+    //         return [];
+    //     }
+
+    //     // if a category has been selected, only show articles in that category
+    //     if ($form['manufacturer_id']) {
+    //         $options = $options->where('manufacturer_id', $form['manufacturer_id']);
+    //     }
+
+    //     return $options->paginate(10);
+    // }
+
+    private function getFieldsData()
     {
         return [
             [
@@ -127,7 +148,7 @@ class CarCrudController extends CrudController
                 'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
                 'crop'         => true, // set to true to allow cropping, false to disable
                 'src'          => NULL, // null to read straight from DB, otherwise set to model accessor function
-            ]
+            ],
         ];
     }
 }

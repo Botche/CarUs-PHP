@@ -9,7 +9,7 @@
     @endif
 
     <div class="input-group-append row mr-4 pt-4 w-100">
-        <form class="w-100" action="/search" method="GET" style="margin-left: 10px">
+        <form class="w-100" action="/cars" method="GET" style="margin-left: 10px">
             <div class="input-group">
                 <input type="search" name="search" placeholder="Search for..." class="form-control">
                 <select class="custom-select" name="search_by" id="searchBy">
