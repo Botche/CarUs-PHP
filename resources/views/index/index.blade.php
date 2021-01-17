@@ -3,8 +3,8 @@
 @section('content')
     <div class="inner">
         <div class="content">
-            <header>
-                <h2>{{$title}}</h2>
+            <header class="text-center m-4">
+                <h1>{{$title}}</h1>
             </header>
             {!! $text !!}
         </div>
