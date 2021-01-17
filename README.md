@@ -1,8 +1,8 @@
 # CarUs
 
 ## Idea
-This site represents place where you can find nice excursions for yourself and your family.
-And you can serch in excursions: transport, organizer and start date
+This site is catalog for cars for yourself and your family.
+CarUs is a project of car info. Information on car data contains travelled distance, manufacturer, model and name. CarUs information is collected from publicly available sources. You can search cars by: Year, Models and Manufacturers.
 
 ## How to start
 * run composer install
