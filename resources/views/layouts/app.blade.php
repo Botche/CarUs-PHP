@@ -40,14 +40,30 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/contact-us">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link authentication" href="/admin"></a>
+                    </li>
                 </ul>
             </div>
+        </div>
+        <div class="input-group-append row mr-4 w-50">
+            <form action="/search" method="GET" style="margin-left: 10px">
+                <div class="input-group">
+                    <input type="search" name="search" placeholder="Search for..." class="form-control">
+                    <select class="custom-select" name="search_by" id="searchBy">
+                        <option value="year" selected>Search by year</option>
+                        <option value="model">Search by model</option>
+                        <option value="manufacturer">Search by manufacturer</option>
+                    </select>
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
         </div>
     </nav>
 
     <!-- Page Content -->
     <div class="container">
-        @yield('content');
+        @yield('content')
     </div>
     <!-- /.container -->
 
