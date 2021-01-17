@@ -32,15 +32,6 @@ class Car extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
-    public function manufacturer()
-    {
-        return $this->belongsTo(Manufacturer::class);
-    }
-
-    public function models_car()
-    {
-        return $this->belongsTo(Models_car::class);
-    }
 
     public static function boot()
     {
@@ -93,6 +84,16 @@ class Car extends Model
     |--------------------------------------------------------------------------
     */
 
+    public function manufacturer()
+    {
+        return $this->belongsTo(Manufacturer::class);
+    }
+
+    public function models_car()
+    {
+        return $this->belongsTo(Models_car::class);
+    }
+    
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ManufacturerRequest;
+
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -84,18 +85,18 @@ class ManufacturerCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    private function getFieldsData($show = FALSE)
+    private function getFieldsData()
     {
         return [
             [
-                'name' => 'name',
-                'label' => 'Name',
-                'type' => 'text'
+                'name'      => 'name',
+                'label'     => 'Name',
+                'type'      => 'text'
             ],
             [
-                'label' => 'Founded on',
-                'name' => 'founded_on',
-                'type' => 'date',
+                'label'     => 'Founded on',
+                'name'      => 'founded_on',
+                'type'      => 'date',
             ]
         ];
     }

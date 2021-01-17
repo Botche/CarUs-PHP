@@ -1,6 +1,4 @@
-@extends('layouts.app')
-
-@section('title', 'Cars Search')
+@extends('layouts.app', ['pageTitle' => isset($pageTitle) ? $pageTitle : 'Page'])
 
 @section('content')
 <div class="inner">
@@ -26,18 +24,17 @@
         @foreach ($cars as $car)
         <div class="col-lg-4 col-md-6 mb-4 mt-4">
             <div class="card h-100">
-                <a href="/car/{{$car->id}}"><img class="card-img-top" src={{$car->image}} alt="This is car {{$car->name}}"></a>
+                <a href="/car/{{$car->id}}"><img class="card-img-top" src={{$car->image}} alt="This is car image of {{$car->name}}"></a>
                 <div class="card-body">
                     <h4 class="card-title">
                         <a href="/car/{{$car->id}}">Name: {{$car->name}}</a>
                     </h4>
-                    <p class="card-text">Manufacturer: {{$manufacturers->where('id', $car->manufacturer_id)->first()->name}}</p>
-                    <p class="card-text">Model: {{$models_cars->where('id', $car->models_car_id)->first()->name}}</p>
+                    <p class="card-text">Manufacturer: {{$car->manufacturerName}}</p>
+                    <p class="card-text">Model: {{$car->modelName}}</p>
+                    <p class="card-text">Travelled kilometers: {{$car->travelled_kilometers}}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="/car/{{$car->id}}">Visit car</a>
-
-                    <p class="float-right">{{$car->created_at}}</p>
+                    <p>Production year: {{$car->production_year}}</p>
                 </div>
             </div>
         </div>

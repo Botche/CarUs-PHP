@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Models_carRequest;
+
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -84,20 +85,20 @@ class Models_carCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    private function getFieldsData($show = FALSE)
+    private function getFieldsData()
     {
         return [
             [
-                'name' => 'name',
-                'label' => 'Name',
-                'type' => 'text'
+                'name'      => 'name',
+                'label'     => 'Name',
+                'type'      => 'text'
             ],
             [
-                'label' => "Manufacturer",
-                'name' => 'manufacturer_id',
-                'type' => 'select',
-                'entity' => 'manufacturer',
-                'model' => "App\Models\Manufacturer", // related model
+                'label'     => "Manufacturer",
+                'name'      => 'manufacturer_id',
+                'type'      => 'select',
+                'entity'    => 'manufacturer',
+                'model'     => "App\Models\Manufacturer", // related model
                 'attribute' => 'name', // foreign key attribute that is shown to user
             ]
         ];

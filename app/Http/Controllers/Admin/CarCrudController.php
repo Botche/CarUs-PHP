@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\CarRequest;
-use App\Models\Models_car;
+
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
@@ -86,74 +86,54 @@ class CarCrudController extends CrudController
         $this->setupCreateOperation();
     }
 
-    // public function index(Request $request)
-    // {
-    //     $search_term = $request->input('q');
-    //     $form = collect($request->input('form'))->pluck('value', 'name');
-
-    //     $options = Models_car::query();
-
-    //     // if no category has been selected, show no options
-    //     if (!$form['manufacturer_id']) {
-    //         return [];
-    //     }
-
-    //     // if a category has been selected, only show articles in that category
-    //     if ($form['manufacturer_id']) {
-    //         $options = $options->where('manufacturer_id', $form['manufacturer_id']);
-    //     }
-
-    //     return $options->paginate(10);
-    // }
-
     private function getFieldsData()
     {
         return [
             [
-                'name' => 'name',
-                'label' => 'Name',
-                'type' => 'text'
+                'name'          => 'name',
+                'label'         => 'Name',
+                'type'          => 'text'
             ],
             [
-                'name' => 'production_year',
-                'label' => 'Production year',
-                'type' => 'date',
+                'name'          => 'production_year',
+                'label'         => 'Production year',
+                'type'          => 'date',
             ],
             [
-                'name' => 'travelled_kilometers',
-                'label' => 'Travelled kilometers',
-                'type' => 'number',
+                'name'          => 'travelled_kilometers',
+                'label'         => 'Travelled kilometers',
+                'type'          => 'number',
             ],
             [
-                'label' => "Manufacturer",
-                'name' => 'manufacturer_id',
-                'type' => 'select',
-                'entity' => 'manufacturer',
-                'model' => "App\Models\Manufacturer", // related model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'attributes' => [
-                    'class'       => 'form-control manufacturer',
-                  ],
+                'label'         => "Manufacturer",
+                'name'          => 'manufacturer_id',
+                'type'          => 'select',
+                'entity'        => 'manufacturer',
+                'model'         => "App\Models\Manufacturer", // related model
+                'attribute'     => 'name', // foreign key attribute that is shown to user
+                'attributes'    => [
+                    'class'     => 'form-control manufacturer',
+                ],
             ],
             [
-                'label' => "Model car",
-                'name' => 'models_car_id',
-                'type' => 'select',
-                'entity' => 'models_car',
-                'model'     => "App\Models\Models_car", // related model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'attributes' => [
-                    'class'       => 'form-control models',
-                  ],
+                'label'         => "Model car",
+                'name'          => 'models_car_id',
+                'type'          => 'select',
+                'entity'        => 'models_car',
+                'model'         => "App\Models\Models_car", // related model
+                'attribute'     => 'name', // foreign key attribute that is shown to user
+                'attributes'    => [
+                    'class'     => 'form-control models',
+                ],
             ],
             [
-                'label'        => "Car Image",
-                'name'         => "image",
-                'filename'     => NULL, // set to null if not needed
-                'type'         => 'image',
-                'aspect_ratio' => 1, // set to 0 to allow any aspect ratio
-                'crop'         => true, // set to true to allow cropping, false to disable
-                'src'          => NULL, // null to read straight from DB, otherwise set to model accessor function
+                'label'         => "Car Image",
+                'name'          => "image",
+                'filename'      => NULL, // set to null if not needed
+                'type'          => 'image',
+                'aspect_ratio'  => 1, // set to 0 to allow any aspect ratio
+                'crop'          => true, // set to true to allow cropping, false to disable
+                'src'           => NULL, // null to read straight from DB, otherwise set to model accessor function
             ],
         ];
     }

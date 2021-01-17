@@ -26,8 +26,8 @@ class ManufacturerRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:255|unique:manufacturers',
-            'founded_on' => 'required|date|before:tomorrow',
+            'name'          => 'required|min:3|max:255|unique:manufacturers',
+            'founded_on'    => 'required|date|before:tomorrow',
         ];
     }
 
@@ -50,10 +50,12 @@ class ManufacturerRequest extends FormRequest
      */
     public function messages()
     {
+        $nameErrorMessage = 'Please provide valid name which is between 3 and 255 characters.';
+
         return [
-            'name.required' => 'Please provide valid name which is between 3 and 255 characters.',
-            'name.min' => 'Please provide valid name which is between 3 and 255 characters.',
-            'name.max' => 'Please provide valid name which is between 3 and 255 characters.',
+            'name.required' => $nameErrorMessage,
+            'name.min'      => $nameErrorMessage,
+            'name.max'      => $nameErrorMessage,
         ];
     }
 }

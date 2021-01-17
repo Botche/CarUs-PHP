@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Shop Homepage - Start Bootstrap Template</title>
+    <title>{{isset($pageTitle) ? $pageTitle : 'Page'}} | CarUs</title>
 
     <!-- Bootstrap core CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -32,13 +32,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/about-us">About</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="/cars">Cars</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/contact-us">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link authentication" href="/admin">Admin</a>
@@ -70,7 +64,7 @@
     <!-- Footer -->
     <footer class="py-3 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+            <p class="m-0 text-center text-white">Copyright &copy; CarUs 2021</p>
         </div>
         <!-- /.container -->
     </footer>
