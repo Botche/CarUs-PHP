@@ -131,6 +131,9 @@ class CarCrudController extends CrudController
                 'entity' => 'manufacturer',
                 'model' => "App\Models\Manufacturer", // related model
                 'attribute' => 'name', // foreign key attribute that is shown to user
+                'attributes' => [
+                    'class'       => 'form-control manufacturer',
+                  ],
             ],
             [
                 'label' => "Model car",
@@ -139,6 +142,9 @@ class CarCrudController extends CrudController
                 'entity' => 'models_car',
                 'model'     => "App\Models\Models_car", // related model
                 'attribute' => 'name', // foreign key attribute that is shown to user
+                'attributes' => [
+                    'class'       => 'form-control models',
+                  ],
             ],
             [
                 'label'        => "Car Image",
